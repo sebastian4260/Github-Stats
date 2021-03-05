@@ -1,0 +1,1 @@
+Delete after push images in this folder
