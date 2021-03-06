@@ -7,6 +7,8 @@ import Avatar from '../components/UI/Avatar';
 import Icon from '../components/UI/Icon';
 import { ContentSmall } from '../components/text/Content';
 import { toggleFavorite } from '../helpers/favorites';
+import { Heading1 } from "../components/text/Heading";
+
 
 const StyledDiv = styled.div`
   width: 100vw;
@@ -35,12 +37,27 @@ function Favorites() {
   }, [favorites]);
 
   return (
+
     <StyledDiv>
+      <Heading1
+        style={css`
+          width: 264px;
+          position: fixed;
+          top: 0;
+          width: 100%;
+        `}
+      >
+        Favorites
+      </Heading1>
+      
+      
       <div className="cards-container">
         {favorites.map((favorite) => (
           <Card key={favorite.id} size="small">
             <Avatar size="small" src={favorite.avatar_url} placeholder="DA" />
             <ContentSmall>{favorite.name}</ContentSmall>
+            <ContentSmall>{favorite.username}</ContentSmall>
+
             <Icon
               onClick={() => toggleFavorite(favorites, favorite, setFavorites)}
               type="star"
@@ -57,6 +74,7 @@ function Favorites() {
           width: 100%;
         `}
       />
+      
     </StyledDiv>
   );
 }
