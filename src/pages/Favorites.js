@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import Navbar from "../components/containers/Navbar";
-import Card from "../components/containers/Card";
-import Avatar from "../components/UI/Avatar";
-import Icon from "../components/UI/Icon";
-import { ContentSmall } from "../components/text/Content";
-import { toggleFavorite } from "../helpers/favorites";
+import { useState, useEffect } from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import Navbar from '../components/containers/Navbar';
+import Card from '../components/containers/Card';
+import Avatar from '../components/UI/Avatar';
+import Icon from '../components/UI/Icon';
+import { ContentSmall } from '../components/text/Content';
+import { toggleFavorite } from '../helpers/favorites';
 
 const StyledDiv = styled.div`
   width: 100vw;
@@ -27,11 +27,11 @@ const StyledDiv = styled.div`
 
 function Favorites() {
   const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem("favorites")) || []
+    JSON.parse(localStorage.getItem('favorites')) || []
   );
 
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
   return (
@@ -39,7 +39,7 @@ function Favorites() {
       <div className="cards-container">
         {favorites.map((favorite) => (
           <Card key={favorite.id} size="small">
-            <Avatar src={favorite.avatar_url} placeholder="DA" />
+            <Avatar size="small" src={favorite.avatar_url} placeholder="DA" />
             <ContentSmall>{favorite.name}</ContentSmall>
             <Icon
               onClick={() => toggleFavorite(favorites, favorite, setFavorites)}
