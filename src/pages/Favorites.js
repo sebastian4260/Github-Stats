@@ -12,13 +12,13 @@ const StyledDiv = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding-top: 60px;
   gap: 60px;
   & > .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 106px);
+    grid-template-rows: repeat(300px, 56px);
     width: 100%;
     grid-gap: 16px;
     justify-content: center;
