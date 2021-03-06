@@ -10,6 +10,9 @@ import CardStats from '../components/containers/CardStats';
 import { Heading2 } from '../components/text/Heading';
 import GithubService from '../services/github_service';
 import { getFavorite, toggleFavorite } from '../helpers/favorites';
+import { getFollower } from '../helpers/followers';
+import { Link } from "react-router-dom";
+
 
 const StyledDiv = styled.div`
   width: 100vw;
@@ -50,6 +53,9 @@ function Search({ history, location }) {
   let [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem('favorites')) || []
   );
+  let [followers, setFollowers] = useState(
+    JSON.parse(localStorage.getItem('followers')) || []
+  );
 
   useEffect(() => {
     async function fetchUser() {
@@ -73,6 +79,10 @@ function Search({ history, location }) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
+  useEffect(() => {
+    localStorage.setItem('followers', JSON.stringify(followers));
+  }, [followers]);
+
   const NoData = () => (
     <>
       <Icon type="github" size={120} />
@@ -81,6 +91,11 @@ function Search({ history, location }) {
       </ContentLargeBold>
     </>
   );
+
+  const selectedOptions = {
+    followers: "/followers",
+    
+  };
 
   const ProfileView = () => {
     const iconsSet = [
@@ -124,6 +139,7 @@ function Search({ history, location }) {
             size={25}
             fill="#F2C94C"
           />
+
         </div>
         <Content
           css={css`
@@ -134,10 +150,16 @@ function Search({ history, location }) {
         </Content>
         <div className="follow-container">
           {iconsSet.map((icon) => (
+            
             <CardStats>
-              <Icon type={icon.type} size={icon.size} fill={icon.color} />
-              <Heading2>{icon.heading}</Heading2>
-              <Content>{icon.content}</Content>
+              
+              
+              <Link to={selectedOptions[icon]} key={icon}>
+
+                <Icon type={icon.type} size={icon.size} fill={icon.color} />
+                <Heading2>{icon.heading}</Heading2>
+                <Content>{icon.content}</Content>
+              </Link>
             </CardStats>
           ))}
         </div>
