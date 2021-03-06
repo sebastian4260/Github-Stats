@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
+import Followers from "./pages/Followers";
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
       />
       <Router>
         <Switch>
+          <Route path="/followers" component={Followers} />
           <Route path="/favorites" component={Favorites} />
           <Route path="/search" component={Search} />
           <Route path="/" component={Home} />
