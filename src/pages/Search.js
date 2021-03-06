@@ -32,6 +32,7 @@ const StyledDiv = styled.div`
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 17px 16px;
+      margin-bottom: 80px;
     }
   }
 `;
