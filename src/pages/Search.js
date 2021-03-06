@@ -6,7 +6,7 @@ import Input from '../components/form/Input';
 import Icon from '../components/UI/Icon';
 import { Content, ContentLargeBold } from '../components/text/Content';
 import Avatar from '../components/UI/Avatar';
-import Card from '../components/containers/Card';
+import CardStats from '../components/containers/CardStats';
 import { Heading2 } from '../components/text/Heading';
 import GithubService from '../services/github_service';
 import { getFavorite, toggleFavorite } from '../helpers/favorites';
@@ -133,11 +133,11 @@ function Search({ history, location }) {
         </Content>
         <div className="follow-container">
           {iconsSet.map((icon) => (
-            <Card>
+            <CardStats>
               <Icon type={icon.type} size={icon.size} fill={icon.color} />
               <Heading2>{icon.heading}</Heading2>
               <Content>{icon.content}</Content>
-            </Card>
+            </CardStats>
           ))}
         </div>
       </>

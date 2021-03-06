@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const sizes = {
-  small: { width: '60px' },
+  small: { width: '40px' },
   default: { width: '120px' },
 };
 

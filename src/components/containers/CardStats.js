@@ -6,7 +6,8 @@ const sizes = {
   
 };
 
-const StyledCard = styled.div`
+
+const StyledCardStats = styled.div`
   width: ${(props) =>
     sizes[props.size] ? sizes[props.size].width : sizes.default.width};
   height: ${(props) =>
@@ -15,15 +16,13 @@ const StyledCard = styled.div`
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   padding: 13px;
 `;
 
-
-function Card({ children, size }) {
-  return <StyledCard size={size}>{children}</StyledCard>;
+function CardStats({ children, size }) {
+  return <StyledCardStats size={size}>{children}</StyledCardStats>;
 }
 
-export default Card;
+export default CardStats;
